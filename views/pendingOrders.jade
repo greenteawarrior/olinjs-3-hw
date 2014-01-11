@@ -4,17 +4,13 @@ block content
   h1= title
 
   h2 List of pending orders
-    form(action="/orders", method="post", id="completing")
+  form(action="/orders", method="post", id="completing")
     ul
       each order in pendingOrdersList
-        p
-        | customer name: #{order.customerName} 
+        p customer name: #{order.customerName} 
         each ingredient in order.ingredients
           div(class="desiredIngredients")
           |#{ingredient.name}
-        p 
-          input(type="checkbox", value=order._id , class="completeMe")
+        p         
+        button(name="completedOrder_id", value=order._id)
           |Order completed?
-          
-    button(type='submit')
-      | Submit

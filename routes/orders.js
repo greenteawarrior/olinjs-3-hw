@@ -51,7 +51,11 @@ exports.pendingOrders = function(req, res) {
 // POST /orders
 // click the completed buttons and the order will disappear from list
 exports.pendingOrders_post = function(req, res) {
-  console.log(req.body);
-  res.send('hmm');
+  var completedOrder_id = req.body.completedOrder_id;
+  models.Order.remove({_id: completedOrder_id}, function(err) {
+    if (err)
+      console.log(err);
+  });
+  res.send('cool cool cool');
 
 };
