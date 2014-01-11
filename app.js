@@ -9,6 +9,7 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 var ingredient = require("./routes/ingredient");
+var orders = require("./routes/orders");
 
 var app = express();
 
@@ -35,7 +36,10 @@ app.get('/users', user.list);
 //jessica's burgers pages
 app.get('/ingredient/new', ingredient.new);
 app.post('/ingredient/create', ingredient.create);
-
+app.get('/order/new', orders.newOrder);
+app.post('/order/new', orders.newOrder_post);
+app.get('/orders', orders.pendingOrders);
+app.post('/orders', orders.pendingOrders_post);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

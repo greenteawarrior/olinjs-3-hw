@@ -4,16 +4,14 @@ var mongoose = require('mongoose');
 //connecting! to either local or heroku config var thing
 mongoose.connect('mongodb://localhost/burgers')
 
-//ingredient schema
-var ingredientSchema = mongoose.Schema({
-    name: String,
-    cost: Number,
+//order schema
+var orderSchema = mongoose.Schema({
+    customerName: String,
+    ingredients: [{ type: Schema.Types.ObjectId, ref: 'Ingredient' }]
 });
 
-
-
 //make the schema into a model
-var Ingredient = mongoose.model('Ingredient', ingredientSchema);
+var Order = mongoose.model('Order', orderSchema);
 
 //so we can use it in routes/ingredient.js , etc
-module.exports = Ingredient;
+module.exports = Order;

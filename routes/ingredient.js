@@ -1,5 +1,5 @@
 //model details are in the /models folder
-var Ingredient = require('../models/burgerModels');
+var models = require('../models/models.js');
 
 // GET /ingredient/new (shows the user a form that allows them to enter a 
 // new ingredient and its cost)
@@ -16,7 +16,7 @@ exports.create = function(req, res){
   newIngredientCost = req.body.cost;
 
   //mongoose stuff for a new ingredient
-  var newIngredient = new Ingredient({name: newIngredientName, cost: newIngredientCost});
+  var newIngredient = new models.Ingredient({name: newIngredientName, cost: newIngredientCost});
   newIngredient.save(function (err) {
     if (err) 
       console.log("Problem saving newIngredient", err);

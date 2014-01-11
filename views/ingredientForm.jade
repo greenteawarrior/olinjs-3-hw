@@ -6,9 +6,9 @@ block content
   form(action="/ingredient/create", method='post', id="ingredientform")
     h2 Submit an ingredient 
     | Ingredient name
-    input(name='name', id="ingredientName")
+    input(type="text", name='name', id="ingredientName")
     | Cost
-    input(name='cost', id="ingredientCost")
+    input(type="text", name='cost', id="ingredientCost")
     button(type='submit')
       | Submit
 

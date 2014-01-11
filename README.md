@@ -166,7 +166,7 @@ Now that you're all warmed up from making the new ingredient page, it shouldn't 
 
 **`/order/new`
 
-For this page you're likely going to want to check out the `input(type=checkbox)` tag. Then in order to make a customer's order submit without refreshing use [jQuery post](http://api.jquery.com/jQuery.post/). Receiving the post data from jQuery is the same on the server side as when receiving a form submission. The main difference on the server side is that you will need to send back JSON data as a response, instead of html. Luckily, express automatically converts javascript arrays and objects to JSON. So you can just call `res.send(["some","data","here",{cool:"man"})` and express will convert the array into JSON and send it to the client. If you don't know what JSON is, it's a way of organizing data, similar to a hash or python dictionary in structure, which is good for sending information of networks. You can read about it [here](http://www.json.org/). In the end though, you don't need to know too much about it. Express will take care of converting javascript stuff into JSON on the serverside, then jQuery will take care of converting the JSON received from your sever back into javascript objects and arrays.
+For this page you're likely going to want to check out the `input(type=checkbox)` tag. Then in order to make a customer's order submit without refreshing use [jQuery post](http://api.jquery.com/jQuery.post/). Receiving the post data from jQuery is the same on the server side as when receiving a form submission. The main difference on the server side is that you will need to send back JSON data as a response, instead of html. Luckily, express automatically converts javascript arrays and objects to JSON. So you can just call `res.send(["some","data","here",{cool:"man"}])` and express will convert the array into JSON and send it to the client. If you don't know what JSON is, it's a way of organizing data, similar to a hash or python dictionary in structure, which is good for sending information of networks. You can read about it [here](http://www.json.org/). In the end though, you don't need to know too much about it. Express will take care of converting javascript stuff into JSON on the serverside, then jQuery will take care of converting the JSON received from your sever back into javascript objects and arrays.
 
 This route will need take care of saving orders to the DB. If you read the mongoose reading at the beginning of this homework then you should know something about embedded vs. referenced objects in a DB. Here you are going to be using references. So you will be making a new model called `order` which will have references to many `ingredients`. You declare this using a schema which looks like this:
 
@@ -179,7 +179,7 @@ var orderSchema = new Schema({
 
 to learn how assign and access referenced objects read the documentation [here](http://mongoosejs.com/docs/populate.html). 
 
-**`/order/new`
+**`/orders`
 
 For this page you will need to again use jQuery post to send a request to the server, whenever a order is "completed". There will also need to be some clientside jQuery which removes the completed order from the list of orders in the browser. jQuery remove will probably be useful. 
 

@@ -6,3 +6,13 @@ body {
 a {
   color: #00B7FF;
 }
+
+h3 {
+    color:green;
+}
+
+.desiredIngredients {
+    font: 10px;
+    color: red;
+}
+
