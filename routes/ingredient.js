@@ -4,7 +4,6 @@ var models = require('../models/models.js');
 // GET /ingredient/new (shows the user a form that allows them to enter a 
 // new ingredient and its cost)
 exports.new = function(req, res){
-  console.log("hey thar get");
   res.render('ingredientForm',{});
 };
 

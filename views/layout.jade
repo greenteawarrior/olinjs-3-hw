@@ -2,9 +2,15 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='..public/stylesheets/style.css')
+    link(rel='stylesheet', href='../stylesheets/style.css')
     script(src='http://code.jquery.com/jquery.js')
-    script(src='/javascripts/makeOrders.js')
     script(src='/javascripts/deleteOrders.js')
+    script(src='/javascripts/makeOrders.js')
   body
+    a(href="/ingredient/new")
+        |Submit a new ingredient||
+    a(href="/order/new")
+        |Order a burger||
+    a(href="/orders")
+        |See list of pending orders||
     block content

@@ -29,7 +29,10 @@ exports.newOrder_post = function(req, res) {
         console.log("Successfully saved newOrder!")
     });
 
-    res.send("Order was submitted! Please wait while we prepare the deliciousness.") 
+    //attempting to work with jquery
+    //res.send([{customerName: req.body.customerName, ingredients: req.body.desiredIngredients}]);
+    //res.redirect("/orders");
+    //res.send("Order was submitted! Please wait while we prepare the deliciousness.") 
 };
 
 // GET /orders
@@ -41,21 +44,22 @@ exports.pendingOrders = function(req, res) {
       console.log("error getting the list of pending orders")
     else
       console.log("successfully obtained list of pending orders")
-      console.log(pendingOrdersList);
+      //console.log(pendingOrdersList);
       //use info from database query to render the list
       res.render('pendingOrders', {pendingOrdersList: pendingOrdersList});
   });
   
 };
 
-// POST /orders
+// POST /orders/completed
 // click the completed buttons and the order will disappear from list
 exports.pendingOrders_post = function(req, res) {
   var completedOrder_id = req.body.completedOrder_id;
   models.Order.remove({_id: completedOrder_id}, function(err) {
     if (err)
       console.log(err);
+    else 
+      console.log("posted!")
   });
-  res.send('cool cool cool');
-
+  //res.redirect("/orders");
 };

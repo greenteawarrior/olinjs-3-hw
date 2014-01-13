@@ -4,13 +4,12 @@ block content
   h1= title
 
   h2 List of pending orders
-  form(action="/orders", method="post", id="completing")
-    ul
+  form(action="/orders/completed", method="post", id="completingForm")
+    ul(id="orderslist")
       each order in pendingOrdersList
-        p customer name: #{order.customerName} 
-        each ingredient in order.ingredients
-          div(class="desiredIngredients")
-          |#{ingredient.name}
-        p         
-        button(name="completedOrder_id", value=order._id)
-          |Order completed?
+        li(class=order._id) customer name: #{order.customerName} || #{order._id}
+          each ingredient in order.ingredients
+            div
+              |#{ingredient.name}
+          button(name="completedOrder_id", class="completeButton", value=order._id)
+            |Order completed? 
