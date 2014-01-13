@@ -1,9 +1,6 @@
 //mongoose setup
 var mongoose = require('mongoose');
 
-//connecting! to either local or heroku config var thing
-mongoose.connect('mongodb://localhost/burgers')
-
 //order schema
 var orderSchema = mongoose.Schema({
     customerName: String,

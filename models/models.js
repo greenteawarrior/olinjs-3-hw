@@ -1,9 +1,6 @@
 //mongoose setup
 var mongoose = require('mongoose');
 
-//connecting! to either local or heroku config var thing
-mongoose.connect('mongodb://localhost/burgers')
-
 //ingredient schema
 var ingredientSchema = mongoose.Schema({
     name: String,

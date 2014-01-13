@@ -10,6 +10,7 @@ var http = require('http');
 var path = require('path');
 var ingredient = require("./routes/ingredient");
 var orders = require("./routes/orders");
+var mongoose = require('mongoose');
 
 var app = express();
 
@@ -24,6 +25,26 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+
+//mongoose!!
+//refer to https://devcenter.heroku.com/articles/nodejs-mongoose
+
+// Here we find an appropriate database to connect to, defaulting to
+// localhost if we don't find one.
+var uristring = process.env.MONGOLAB_URI || 'mongodb://localhost/HelloMongoose';
+
+// Makes connection asynchronously.  Mongoose will queue up database
+// operations and release them when the connection is complete.
+mongoose.connect(uristring, function (err, res) {
+  if (err) {
+  console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+  console.log ('Succeeded connected to: ' + uristring);
+  }
+});
+// //end of mongoose stuff in app.js
+
+
 
 // development only
 if ('development' == app.get('env')) {

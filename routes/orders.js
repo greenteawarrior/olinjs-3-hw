@@ -28,11 +28,6 @@ exports.newOrder_post = function(req, res) {
       else 
         console.log("Successfully saved newOrder!")
     });
-
-    //attempting to work with jquery
-    //res.send([{customerName: req.body.customerName, ingredients: req.body.desiredIngredients}]);
-    //res.redirect("/orders");
-    //res.send("Order was submitted! Please wait while we prepare the deliciousness.") 
 };
 
 // GET /orders
@@ -44,7 +39,6 @@ exports.pendingOrders = function(req, res) {
       console.log("error getting the list of pending orders")
     else
       console.log("successfully obtained list of pending orders")
-      //console.log(pendingOrdersList);
       //use info from database query to render the list
       res.render('pendingOrders', {pendingOrdersList: pendingOrdersList});
   });
@@ -61,5 +55,4 @@ exports.pendingOrders_post = function(req, res) {
     else 
       console.log("posted!")
   });
-  //res.redirect("/orders");
 };
